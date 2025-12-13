@@ -47,7 +47,7 @@ def initialize_models(config: dict):
     
     for seq in config["target_sequences"]:
         wrapper = PsichicWrapper()
-        wrapper.runtime_config.BATCH_SIZE = 512
+        wrapper.runtime_config.BATCH_SIZE = 256
         wrapper.initialize_model(seq)
         target_models.append(wrapper)
     
