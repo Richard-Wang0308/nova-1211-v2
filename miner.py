@@ -18,7 +18,7 @@ OUTPUT_DIR = os.environ.get("OUTPUT_DIR", "/output")
 from nova_ph2.PSICHIC.wrapper import PsichicWrapper
 from nova_ph2.PSICHIC.psichic_utils.data_utils import virtual_screening
 
-from molecules import (
+from molecules_v2 import (
     generate_valid_random_molecules_batch,
     select_diverse_elites,
     build_component_weights,
@@ -160,8 +160,8 @@ def main(config: dict):
     top_pool = pd.DataFrame(columns=["name", "smiles", "InChIKey", "score", "Target", "Anti"])
     rxn_id = int(config["allowed_reaction"].split(":")[-1])
     iteration = 0
-    mutation_prob = 0.4
-    elite_frac = 0.5
+    mutation_prob = 0.1
+    elite_frac = 0.25
     seen_inchikeys = set()
     seed_df = pd.DataFrame(columns=["name", "smiles", "InChIKey", "tanimoto_similarity"])
     start = time.time()
